@@ -1,42 +1,60 @@
 import Avatar from "@/assets/images/avatar.jpeg";
 import Card from "@/components/Card";
+import { useState } from "react";
 
 const JobPostings = () => {
+  const [selectedJob, setSelectedJob] = useState(null);
+
   const jobPostings = [
     {
+      id: 1,
       title: "Food Crew",
       company: "Jollibee Food Corporation",
       location: "Dolores, City of San Fernando Pampanga",
       vacantPositions: 3,
       applicableFor: ["Hearing Impairment", "Physical Disability"],
+      description:
+        "Assist in food preparation and customer service. Maintain cleanliness and adhere to company protocols. To apply just bring the following: Resume, PWD ID and other supporting documents. Note that applicants may bring 1 person to support him/her during the process.",
     },
     {
+      id: 2,
       title: "Cashier",
       company: "McDonald's Philippines",
       location: "Sindalan, City of San Fernando Pampanga",
       vacantPositions: 2,
       applicableFor: ["Visual Disability", "Psychosocial Disability"],
+      description:
+        "Manage cash registers and transactions, provide excellent customer service, and ensure accurate billing. To apply just bring the following: Resume, PWD ID and other supporting documents. Note that applicants may bring 1 person to support him/her during the process.",
     },
     {
+      id: 3,
       title: "Service Crew",
       company: "Chowking",
       location: "San Agustin, City of San Fernando Pampanga",
       vacantPositions: 4,
       applicableFor: ["Learning Disability", "Mental Disability"],
+      description:
+        "Serve food and drinks, attend to customers, and ensure a pleasant dining experience. Assist in kitchen tasks when needed. To apply just bring the following: Resume, PWD ID and other supporting documents. Note that applicants may bring 1 person to support him/her during the process.",
     },
     {
+      id: 4,
       title: "Store Assistant",
       company: "Mang Inasal",
       location: "Telabastagan, City of San Fernando Pampanga",
       vacantPositions: 1,
       applicableFor: ["Orthopedic Disability", "Communication Disability"],
+      description:
+        "Assist with daily store operations, including inventory management and customer service. Ensure cleanliness and organization. To apply just bring the following: Resume, PWD ID and other supporting documents. Note that applicants may bring 1 person to support him/her during the process.",
     },
     {
+      id: 5,
       title: "Delivery Rider",
       company: "Pizza Hut",
       location: "Baliti, City of San Fernando Pampanga",
       vacantPositions: 2,
       applicableFor: ["Hearing Impairment", "Chronic Illness"],
+      description:
+        "Deliver food orders to customers safely and efficiently. Maintain delivery equipment and handle customer interactions politely. To apply just bring the following: Resume, PWD ID and other supporting documents. Note that applicants may bring 1 person to support him/her during the process.",
     },
   ];
 
@@ -168,9 +186,9 @@ const JobPostings = () => {
             </div>
           </nav>
 
-          <div class="layout-page">
-            <div class="content-wrapper container-wrap">
-              <div class="container-xxl flex-grow-1 container-p-y">
+          <div className="layout-page">
+            <div className="content-wrapper container-wrap">
+              <div className="container-xxl flex-grow-1 container-p-y">
                 <div className="chat-history-footer shadow-sm search-container shadow-lg mb-5">
                   <form className="form-send-message d-flex justify-content-between align-items-center">
                     <input
@@ -192,12 +210,27 @@ const JobPostings = () => {
                   <h3 className="fw-bold mb-0 rec-text">Job Recommendations</h3>
                 </div>
 
-                <div className="mt-5">
-                  <div className="row mb-5">
-                    <div className="col-sm-12 col-md-6 col-lg-6">
-                      {jobPostings.map((job, index) => (
-                        <Card key={index} title="Test">
-                          <div className="cursor-pointer">
+                <div className="container mt-5">
+                  <div className="row">
+                    {/* LEFT: Job list with scroll */}
+                    <div
+                      className="col-md-6"
+                      style={{
+                        maxHeight: "80vh",
+                        overflowY: "auto",
+                        paddingRight: "1rem",
+                      }}
+                    >
+                      {jobPostings.map((job) => (
+                        <Card
+                          key={job.id}
+                          title="Test"
+                          active={job.id === selectedJob?.id}
+                        >
+                          <div
+                            className="cursor-pointer"
+                            onClick={() => setSelectedJob(job)}
+                          >
                             <h3 className="text-decoration-underline">
                               {job.title}
                             </h3>
@@ -229,10 +262,61 @@ const JobPostings = () => {
                         </Card>
                       ))}
                     </div>
+
+                    {/* RIGHT: Sticky job details */}
                     <div className="col-md-6 col-lg-6 d-none d-md-block">
-                      <Card title="Test">
-                        <div className="selected-job"></div>
-                      </Card>
+                      <div
+                      // style={{
+                      //   position: "sticky",
+                      //   top: "20px",
+                      //   zIndex: 10,
+                      // }}
+                      >
+                        <Card title="Job Details">
+                          <div className="selected-job">
+                            {selectedJob ? (
+                              <>
+                                <h3 className="text-decoration-underline">
+                                  {selectedJob.title}
+                                </h3>
+                                <span className="d-block d-flex align-items-center gap-1">
+                                  <i className="ti ti-buildings"></i>
+                                  {selectedJob.company}
+                                </span>
+                                <span className="d-block d-flex align-items-center gap-1">
+                                  <i className="ti ti-map-pin"></i>
+                                  {selectedJob.location}
+                                </span>
+                                <h5 className="my-3">
+                                  <span className="badge text-bg-primary">
+                                    Vacant Position/s:{" "}
+                                    {selectedJob.vacantPositions}
+                                  </span>
+                                </h5>
+                                <div className="d-flex flex-wrap gap-1">
+                                  <span className="me-2">Applicable for:</span>
+                                  {selectedJob.applicableFor.map(
+                                    (disability, idx) => (
+                                      <span
+                                        key={idx}
+                                        className="badge text-bg-secondary"
+                                      >
+                                        {disability}
+                                      </span>
+                                    )
+                                  )}
+                                  <p className="description mt-5">
+                                    <strong>Job Description:</strong>{" "}
+                                    {selectedJob.description}
+                                  </p>
+                                </div>
+                              </>
+                            ) : (
+                              <p>Select a job to see details here.</p>
+                            )}
+                          </div>
+                        </Card>
+                      </div>
                     </div>
                   </div>
                 </div>
