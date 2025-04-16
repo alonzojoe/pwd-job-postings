@@ -6,7 +6,7 @@ const JobPostings = () => {
       <div className="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
         <div className="layout-container">
           <nav
-            className="layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme"
+            className="nav-main layout-navbar navbar navbar-expand-xl align-items-center bg-navbar-theme"
             id="layout-navbar"
           >
             <div className="container-xxl">
@@ -800,8 +800,29 @@ const JobPostings = () => {
           </nav>
 
           <div class="layout-page">
-            <div class="content-wrapper">
-              <div class="container-xxl flex-grow-1 container-p-y">content</div>
+            <div class="content-wrapper container-wrap">
+              <div class="container-xxl flex-grow-1 container-p-y">
+                <div className="chat-history-footer shadow-sm search-container shadow-lg mb-5">
+                  <form className="form-send-message d-flex justify-content-between align-items-center">
+                    <input
+                      className="form-control message-input border-0 me-3 shadow-none fs-5"
+                      placeholder="Search Job Title, keywords or company"
+                    />
+                    <div className="message-actions d-flex align-items-center">
+                      <button className="btn btn-primary d-flex send-msg-btn waves-effect waves-light">
+                        <i className="ti ti-search me-md-1 me-0"></i>
+                        <span className="align-middle d-md-inline-block d-none">
+                          Search
+                        </span>
+                      </button>
+                    </div>
+                  </form>
+                </div>
+
+                <div className="d-flex align-items-center justify-content-center rec-container">
+                  <h3 className="fw-bold mb-0 rec-text">Job Recommendations</h3>
+                </div>
+              </div>
             </div>
           </div>
         </div>

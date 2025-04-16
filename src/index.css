@@ -1,0 +1,28 @@
+.nav-main {
+    top: 0;
+    width: 100% !important;
+    position: fixed;
+}
+
+.container-wrap {
+    padding-top: 4rem;
+}
+
+
+.search-container {
+    background: #fff;
+    margin: 10px 10rem;
+    padding: 10px;
+    border-radius: 1rem;
+    border: 0.5px solid #000;
+    box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.rec-container {
+    border-bottom: 1px solid #DBDADE;
+}
+
+.rec-text {
+    display: inline-block;
+    border-bottom: 3px solid #319FE8 !important;
+}
