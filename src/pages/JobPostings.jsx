@@ -2,6 +2,44 @@ import Avatar from "@/assets/images/avatar.jpeg";
 import Card from "@/components/Card";
 
 const JobPostings = () => {
+  const jobPostings = [
+    {
+      title: "Food Crew",
+      company: "Jollibee Food Corporation",
+      location: "Dolores, City of San Fernando Pampanga",
+      vacantPositions: 3,
+      applicableFor: ["Hearing Impairment", "Physical Disability"],
+    },
+    {
+      title: "Cashier",
+      company: "McDonald's Philippines",
+      location: "Sindalan, City of San Fernando Pampanga",
+      vacantPositions: 2,
+      applicableFor: ["Visual Disability", "Psychosocial Disability"],
+    },
+    {
+      title: "Service Crew",
+      company: "Chowking",
+      location: "San Agustin, City of San Fernando Pampanga",
+      vacantPositions: 4,
+      applicableFor: ["Learning Disability", "Mental Disability"],
+    },
+    {
+      title: "Store Assistant",
+      company: "Mang Inasal",
+      location: "Telabastagan, City of San Fernando Pampanga",
+      vacantPositions: 1,
+      applicableFor: ["Orthopedic Disability", "Communication Disability"],
+    },
+    {
+      title: "Delivery Rider",
+      company: "Pizza Hut",
+      location: "Baliti, City of San Fernando Pampanga",
+      vacantPositions: 2,
+      applicableFor: ["Hearing Impairment", "Chronic Illness"],
+    },
+  ];
+
   return (
     <>
       <div className="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
@@ -157,37 +195,45 @@ const JobPostings = () => {
                 <div className="mt-5">
                   <div className="row mb-5">
                     <div className="col-sm-12 col-md-6 col-lg-6">
-                      <Card title="Test">
-                        <div className="cursor-pointer">
-                          <h3 className="text-decoration-underline">
-                            Food Crew
-                          </h3>
-                          <span className="d-block d-flex align-items-center gap-1">
-                            <i className="ti ti-buildings"></i>Jollibee Food
-                            Corporation
-                          </span>
-                          <span className="d-block d-flex align-items-center gap-1">
-                            <i className="ti ti-map-pin"></i>Dolores, City of
-                            San Fernando Pampanga
-                          </span>
-                          <h5 className="my-3">
-                            <span class="badge text-bg-primary">
-                              Vacant Position: 3
+                      {jobPostings.map((job, index) => (
+                        <Card key={index} title="Test">
+                          <div className="cursor-pointer">
+                            <h3 className="text-decoration-underline">
+                              {job.title}
+                            </h3>
+                            <span className="d-block d-flex align-items-center gap-1">
+                              <i className="ti ti-buildings"></i>
+                              {job.company}
                             </span>
-                          </h5>
-                          <div className="d-flex flex-wrap gap-1">
-                            <span className="me-2">Applicable for:</span>
-                            <span className="badge text-bg-secondary">
-                              Hearing Impairment
+                            <span className="d-block d-flex align-items-center gap-1">
+                              <i className="ti ti-map-pin"></i>
+                              {job.location}
                             </span>
-                            <span className="badge text-bg-secondary">
-                              Physical Disability
-                            </span>
+                            <h5 className="my-3">
+                              <span className="badge text-bg-primary">
+                                Vacant Position/s: {job.vacantPositions}
+                              </span>
+                            </h5>
+                            <div className="d-flex flex-wrap gap-1">
+                              <span className="me-2">Applicable for:</span>
+                              {job.applicableFor.map((disability, idx) => (
+                                <span
+                                  key={idx}
+                                  className="badge text-bg-secondary"
+                                >
+                                  {disability}
+                                </span>
+                              ))}
+                            </div>
                           </div>
-                        </div>
+                        </Card>
+                      ))}
+                    </div>
+                    <div className="col-md-6 col-lg-6 d-none d-md-block">
+                      <Card title="Test">
+                        <div className="selected-job"></div>
                       </Card>
                     </div>
-                    <div className="col-md-6 col-lg-6 d-none d-md-block">B</div>
                   </div>
                 </div>
               </div>

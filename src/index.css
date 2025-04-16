@@ -30,3 +30,8 @@
 .cursor-pointer {
     cursor: pointer;
 }
+
+.selected-job {
+    height: fit-content;
+    overflow-y: auto;
+}
