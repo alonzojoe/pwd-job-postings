@@ -1,4 +1,5 @@
 import Avatar from "@/assets/images/avatar.jpeg";
+import Card from "@/components/Card";
 
 const JobPostings = () => {
   return (
@@ -151,6 +152,43 @@ const JobPostings = () => {
 
                 <div className="d-flex align-items-center justify-content-center rec-container">
                   <h3 className="fw-bold mb-0 rec-text">Job Recommendations</h3>
+                </div>
+
+                <div className="mt-5">
+                  <div className="row mb-5">
+                    <div className="col-sm-12 col-md-6 col-lg-6">
+                      <Card title="Test">
+                        <div className="cursor-pointer">
+                          <h3 className="text-decoration-underline">
+                            Food Crew
+                          </h3>
+                          <span className="d-block d-flex align-items-center gap-1">
+                            <i className="ti ti-buildings"></i>Jollibee Food
+                            Corporation
+                          </span>
+                          <span className="d-block d-flex align-items-center gap-1">
+                            <i className="ti ti-map-pin"></i>Dolores, City of
+                            San Fernando Pampanga
+                          </span>
+                          <h5 className="my-3">
+                            <span class="badge text-bg-primary">
+                              Vacant Position: 3
+                            </span>
+                          </h5>
+                          <div className="d-flex flex-wrap gap-1">
+                            <span className="me-2">Applicable for:</span>
+                            <span className="badge text-bg-secondary">
+                              Hearing Impairment
+                            </span>
+                            <span className="badge text-bg-secondary">
+                              Physical Disability
+                            </span>
+                          </div>
+                        </div>
+                      </Card>
+                    </div>
+                    <div className="col-md-6 col-lg-6 d-none d-md-block">B</div>
+                  </div>
                 </div>
               </div>
             </div>
