@@ -346,6 +346,8 @@ html:not([dir="rtl"]) .app-brand-text {
     visibility: hidden !important;
 }
 
+
+
 @media screen and (max-width: 767px) {
     .search-container {
 
@@ -362,4 +364,29 @@ html:not([dir="rtl"]) .app-brand-text {
 
         margin: 10px 1rem;
     }
+
+    .nav-item.nav-username {
+        display: none;
+    }
 }
+
+@media screen and (max-width: 991px) {
+    .navbar-brand.app-brand {
+        display: block !important;
+    }
+}
+
+/* ::-webkit-scrollbar {
+    width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: #7D7D7D;
+    border: 3px solid #7D7D7D;
+    background-clip: padding-box;
+}
+
+::-webkit-scrollbar-track {
+    border-radius: 10px;
+} */
