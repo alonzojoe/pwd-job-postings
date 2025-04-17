@@ -12,9 +12,9 @@ const JobPostings = () => {
       company: "Jollibee Food Corporation",
       location: "Dolores, City of San Fernando Pampanga",
       vacantPositions: 3,
-      applicableFor: ["Hearing Impairment", "Physical Disability"],
+      applicableFor: ["Hearing Disability", "Physical Disability"],
       description:
-        "Assist in food preparation and customer service. Maintain cleanliness and adhere to company protocols. To apply just bring the following: Resume, PWD ID and other supporting documents. Note that applicants may bring 1 person to support him/her during the process.",
+        "Prepare food items following company standards and ensure they meet quality and safety requirements. Engage with customers courteously and provide assistance with their needs. Maintain cleanliness in food preparation areas and adhere strictly to Jollibee's hygiene protocols. Handle cash transactions and support team members as needed. Applicants may walk in to Jollibee Food Corporation, Dolores, City of San Fernando Pampanga, and bring the following requirements: Resume, PWD ID, and other supporting documents. Note that applicants may bring 1 person to assist them during the application process.",
     },
     {
       id: 2,
@@ -24,7 +24,7 @@ const JobPostings = () => {
       vacantPositions: 2,
       applicableFor: ["Visual Disability", "Psychosocial Disability"],
       description:
-        "Manage cash registers and transactions, provide excellent customer service, and ensure accurate billing. To apply just bring the following: Resume, PWD ID and other supporting documents. Note that applicants may bring 1 person to support him/her during the process.",
+        "Operate cash registers efficiently and manage financial transactions accurately. Provide prompt and friendly customer service by addressing inquiries and resolving minor issues. Ensure compliance with McDonald's billing and payment policies. Assist in maintaining cleanliness in customer areas during downtime. Applicants may walk in to McDonald's Philippines, Sindalan, City of San Fernando Pampanga, and bring the following requirements: Resume, PWD ID, and other supporting documents. Note that applicants may bring 1 person to assist them during the application process.",
     },
     {
       id: 3,
@@ -34,7 +34,7 @@ const JobPostings = () => {
       vacantPositions: 4,
       applicableFor: ["Learning Disability", "Mental Disability"],
       description:
-        "Serve food and drinks, attend to customers, and ensure a pleasant dining experience. Assist in kitchen tasks when needed. To apply just bring the following: Resume, PWD ID and other supporting documents. Note that applicants may bring 1 person to support him/her during the process.",
+        "Greet customers warmly and assist them with their orders. Serve food and beverages promptly while ensuring quality service. Help maintain cleanliness and organization in the dining area. Perform basic kitchen tasks such as food prep and cleanup when required. Applicants may walk in to Chowking, San Agustin, City of San Fernando Pampanga, and bring the following requirements: Resume, PWD ID, and other supporting documents. Note that applicants may bring 1 person to assist them during the application process.",
     },
     {
       id: 4,
@@ -44,7 +44,7 @@ const JobPostings = () => {
       vacantPositions: 1,
       applicableFor: ["Orthopedic Disability", "Communication Disability"],
       description:
-        "Assist with daily store operations, including inventory management and customer service. Ensure cleanliness and organization. To apply just bring the following: Resume, PWD ID and other supporting documents. Note that applicants may bring 1 person to support him/her during the process.",
+        "Support day-to-day operations by assisting with inventory management and organizing supplies. Provide excellent customer service and ensure guests' needs are met promptly. Help maintain store cleanliness and uphold Mang Inasal's operational standards. Assist in coordinating tasks with other team members. Applicants may walk in to Mang Inasal, Telabastagan, City of San Fernando Pampanga, and bring the following requirements: Resume, PWD ID, and other supporting documents. Note that applicants may bring 1 person to assist them during the application process.",
     },
     {
       id: 5,
@@ -52,9 +52,9 @@ const JobPostings = () => {
       company: "Pizza Hut",
       location: "Baliti, City of San Fernando Pampanga",
       vacantPositions: 2,
-      applicableFor: ["Hearing Impairment", "Chronic Illness"],
+      applicableFor: ["Hearing Disability", "Chronic Illness"],
       description:
-        "Deliver food orders to customers safely and efficiently. Maintain delivery equipment and handle customer interactions politely. To apply just bring the following: Resume, PWD ID and other supporting documents. Note that applicants may bring 1 person to support him/her during the process.",
+        "Deliver food orders safely and promptly to customers' locations while ensuring the correct order is delivered. Maintain delivery vehicles and equipment in top condition. Interact courteously with customers during delivery and handle any minor issues effectively. Assist in organizing delivery routes to improve efficiency. Applicants may walk in to Pizza Hut, Baliti, City of San Fernando Pampanga, and bring the following requirements: Resume, PWD ID, and other supporting documents. Note that applicants may bring 1 person to assist them during the application process.",
     },
   ];
 
@@ -124,7 +124,7 @@ const JobPostings = () => {
                             </div>
                             <div className="flex-grow-1">
                               <span className="fw-medium d-block">
-                                John Doe
+                                JUAN DELA CRUZ
                               </span>
                               <small className="text-muted">
                                 Hearing Disability
@@ -305,14 +305,17 @@ const JobPostings = () => {
                                       </span>
                                     )
                                   )}
-                                  <p className="description mt-5">
+                                  <p className="description mt-2">
+                                    <hr />
                                     <strong>Job Description:</strong>{" "}
                                     {selectedJob.description}
                                   </p>
                                 </div>
                               </>
                             ) : (
-                              <p>Select a job to see details here.</p>
+                              <p className="fw-bold h4 text-center mt-3">
+                                Select a job to see details here.
+                              </p>
                             )}
                           </div>
                         </Card>
