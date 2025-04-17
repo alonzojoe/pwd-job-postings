@@ -1,9 +1,11 @@
 import Avatar from "@/assets/images/avatar.jpeg";
 import Card from "@/components/Card";
+import Modal from "@/components/Modal";
 import { useState } from "react";
 
 const JobPostings = () => {
   const [selectedJob, setSelectedJob] = useState(null);
+  const [modal, toggleModal] = useState(false);
 
   const jobPostings = [
     {
@@ -58,8 +60,58 @@ const JobPostings = () => {
     },
   ];
 
+  const viewDetails = (job) => {
+    setSelectedJob(job);
+    toggleModal(true);
+  };
+
   return (
     <>
+      {modal && (
+        <Modal title={`Job Details`} onClose={() => toggleModal(false)}>
+          <Card title="Job Details">
+            <div className="selected-job">
+              {selectedJob ? (
+                <>
+                  <h3 className="text-decoration-underline">
+                    {selectedJob.title}
+                  </h3>
+                  <span className="d-block d-flex align-items-center gap-1">
+                    <i className="ti ti-buildings"></i>
+                    {selectedJob.company}
+                  </span>
+                  <span className="d-block d-flex align-items-center gap-1">
+                    <i className="ti ti-map-pin"></i>
+                    {selectedJob.location}
+                  </span>
+                  <h5 className="my-3">
+                    <span className="badge text-bg-primary">
+                      Vacant Position/s: {selectedJob.vacantPositions}
+                    </span>
+                  </h5>
+                  <div className="d-flex flex-wrap gap-1">
+                    <span className="me-2">Applicable for:</span>
+                    {selectedJob.applicableFor.map((disability, idx) => (
+                      <span key={idx} className="badge text-bg-secondary">
+                        {disability}
+                      </span>
+                    ))}
+                    <div className="description mt-2">
+                      <hr />
+                      <strong>Job Description:</strong>{" "}
+                      {selectedJob.description}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <p className="fw-bold h4 text-center mt-3">
+                  Select a job to see details here.
+                </p>
+              )}
+            </div>
+          </Card>
+        </Modal>
+      )}
       <div className="layout-wrapper layout-navbar-full layout-horizontal layout-without-menu">
         <div className="layout-container">
           <nav
@@ -214,7 +266,7 @@ const JobPostings = () => {
                   <div className="row">
                     {/* LEFT: Job list with scroll */}
                     <div
-                      className="col-md-6"
+                      className="col-md-6 col-sm-12"
                       style={{
                         maxHeight: "80vh",
                         overflowY: "auto",
@@ -229,7 +281,7 @@ const JobPostings = () => {
                         >
                           <div
                             className="cursor-pointer"
-                            onClick={() => setSelectedJob(job)}
+                            onClick={() => viewDetails(job)}
                           >
                             <h3 className="text-decoration-underline">
                               {job.title}
@@ -305,11 +357,11 @@ const JobPostings = () => {
                                       </span>
                                     )
                                   )}
-                                  <p className="description mt-2">
+                                  <div className="description mt-2">
                                     <hr />
                                     <strong>Job Description:</strong>{" "}
                                     {selectedJob.description}
-                                  </p>
+                                  </div>
                                 </div>
                               </>
                             ) : (

@@ -1,7 +1,7 @@
 import { createPortal } from "react-dom";
-const Modal = ({ details, client, children, onClose }) => {
+const Modal = ({ title, client, children, onClose }) => {
   return createPortal(
-    <div className="cst-modal2">
+    <div className="cst-modal2 modal-container">
       <div className="cst-modal-body2 bg-white rounded position-relative">
         <span
           onClick={onClose}
@@ -20,15 +20,16 @@ const Modal = ({ details, client, children, onClose }) => {
             aria-hidden="true"
           ></i>
         </span>
-        <div className="position-relative border border-primary rounded p-2 m-2 mt-4">
+        {/* border border-primary */}
+        <div className="position-relative  rounded p-2 m-2 mt-4">
           <div
-            className="position-absolute bg-primary text-white px-2 rounded"
+            className="position-absolute bg-primary fw-bold text-white px-2 rounded"
             style={{
-              top: "-13px",
+              top: "-18px",
               left: "5px",
             }}
           >
-            {details.title}
+            {title}
           </div>
           {client}
           <div>{children}</div>
